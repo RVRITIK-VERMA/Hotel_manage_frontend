@@ -1,0 +1,70 @@
+
+<div class="loader-wrapper" *ngIf="isLoading">
+  <div class="loader"></div>
+</div>
+
+<!-- Your existing component HTML here -->
+
+<div class="container">
+    <div class="text-center mt-4">
+      <h2>Welcome to Hotel Booking, {{ userName }}</h2>
+    </div>
+  
+    <!-- Actions for Admin -->
+    <div class="d-flex justify-content-start align-items-center gap-5 mt-4">
+      <div>
+        <input type="number" [(ngModel)]="numberOfRoomsReq" class="form-control" max="5" placeholder="Enter No of Rooms">
+      </div>
+
+      <button class="btn btn-success col-sm-1" (click)="bookRooms()" [disabled]="roomExistsForUser || userName.toLowerCase()=='admin'">Book</button>
+      <button class="btn btn-warning col-sm-1" (click)="resetRooms()">Reset</button>
+      <button class="btn custom-red-btn col-sm-1"  (click)="logout()">Logout</button>
+      <button class="btn btn-info col-sm-1" *ngIf="userName.toLowerCase() === 'admin'" (click)="randomBooking()" [disabled]="roomExistsForUser">Random</button>
+      <button *ngIf="userName.toLowerCase() === 'admin'" class="btn custom-red-btn col-sm-1" (click)="resetAllBooking()">Delete All Booking</button>
+      <button *ngIf="userName.toLowerCase() === 'admin'" class="btn custom-red-btn col-sm-1" (click)="deleteAllUser()">Delete All User</button>
+    </div>
+  
+    <!-- Vacant Rooms Status -->
+    <div class="vacant-rooms-status mt-4">
+      <h5>Rooms Booked By User: {{roomsOccupiedByUser}}   ||  Vacant Rooms: {{ totalVacantRooms }}</h5>
+      <div class="room-status-boxes">
+        <div class="room-status-box vacant">
+          <span class="status-label">Vacant</span>
+        </div>
+        <div class="room-status-box booked">
+          <span class="status-label">Booked</span>
+        </div>
+        <div class="room-status-box user-booking">
+          <span class="status-label">User Booking</span>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Floors and Rooms -->
+    <div class="row mt-5">
+      <div *ngFor="let floor of floors">
+        <div class="col-12">
+          <h5>Floor {{ floor.floor_number }}</h5>
+          <div class="row">
+            <div class="col-1" *ngFor="let room of floor.rooms">
+              <div
+                class="card mb-3"
+                [ngClass]="{
+                  'bg-white': room.occupied_flag === '0',
+                  'bg-secondary': room.occupied_flag === '1' && !room.selected,
+                  'bg-primary': room.occupied_flag === '1' && room.selected
+                }"
+              >
+                <div class="card-body text-center">
+                  <h5>{{ room.room_number }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

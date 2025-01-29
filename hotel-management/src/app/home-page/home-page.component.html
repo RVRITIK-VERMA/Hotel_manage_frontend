@@ -1,0 +1,16 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="text-center">
+        <!-- Input Field -->
+        <input [(ngModel)]="name" type="text" class="form-control mb-2" placeholder="Enter your name">
+
+        <!-- Dropdown for Existing Users -->
+         
+        <select class="form-control mb-3" [(ngModel)]="selectedUser" (change)="bindUser()">
+            <option value="" disabled selected>Select an existing user</option>
+            <option *ngFor="let user of usersList" [value]="user.username">{{ user.username }}</option>
+        </select>
+
+        <!-- Enter Button -->
+        <button class="btn btn-primary" (click)="onEnter()">Enter</button>
+    </div>
+</div>

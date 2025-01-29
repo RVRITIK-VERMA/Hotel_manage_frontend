@@ -1,0 +1,100 @@
+.custom-red-btn {
+    background-color: #ff4d4d; /* Bright red color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+  }
+  
+  .custom-red-btn:hover {
+    background-color: #e60000; /* Darker red for hover effect */
+  }
+
+  .bg-white {
+    background-color: white;
+  }
+  
+  .bg-secondary {
+    background-color: grey;  /* Adjust according to your needs */
+  }
+  
+  .bg-primary {
+    background-color: blue;  /* Adjust according to your needs */
+  }
+  
+  .loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Light blur background */
+    backdrop-filter: blur(4px); /* Blur effect */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loader {
+    width: 50px;
+    height: 50px;
+    border: 6px solid rgba(0, 123, 255, 0.2); /* Blue border with transparency */
+    border-top: 6px solid #007bff; /* Solid blue border for animation */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  .vacant-rooms-status {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .room-status-boxes {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .room-status-box {
+    display: flex;
+    align-items: center;  /* Center the label vertically */
+    justify-content: center;  /* Center the label horizontally */
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;  /* Text color to contrast the background */
+  }
+  
+  .vacant {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: black;  /* Black text on white background */
+  }
+  
+  .booked {
+    background-color: grey;
+  }
+  
+  .user-booking {
+    background-color: blue;
+  }
+  
+  .status-label {
+    font-size: 12px;  /* Smaller text size for labels */
+    font-weight: bold;
+  }
+  
+  
+  
